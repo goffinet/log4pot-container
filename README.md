@@ -2,6 +2,8 @@
 
 ![log4pot](https://github.com/goffinet/log4pot-container/actions/workflows/main.yml/badge.svg)
 
+## Dockerfile
+
 ```
 FROM ubuntu:20.04
 
@@ -63,4 +65,47 @@ USER log4pot:log4pot
 WORKDIR /opt/Log4Pot/
 
 CMD ["/usr/bin/python3","log4pot.py","--port","8080","--log","/opt/Log4Pot/log/log4pot.log","--download-dir","/opt/Log4Pot/payloads/","--download-class","--download-payloads"]
+```
+
+## Docker-compose
+
+```
+version: '2.3'
+networks:
+  log4pot_local:
+services:
+  log4pot:
+    build: .
+    container_name: log4pot
+    restart: always
+    tmpfs:
+     - /tmp:uid=2000,gid=2000
+    networks:
+     - log4pot_local
+    ports:
+     - "80:8080"
+     - "443:8080"
+     - "8080:8080"
+     - "9200:8080"
+     - "25565:8080"
+    image: "ghcr.io/goffinet/log4pot:latest"
+#    read_only: true
+#    volumes:
+#     - /data/log4pot/log:/opt/Log4Pot/log
+#     - /data/log4pot/payloads:/opt/Log4Pot/payloads
+```
+
+## Usage
+
+```
+git clone https://github.com/goffinet/log4pot-container.git
+cd log4pot-container
+```
+
+```
+docker-compose up -d
+```
+
+```
+docker exec log4pot tail -f /opt/Log4Pot/log/log4pot.log
 ```
