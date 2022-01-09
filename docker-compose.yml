@@ -4,8 +4,6 @@ networks:
   log4pot_local:
 
 services:
-
-# Log4pot service
   log4pot:
     build: .
     container_name: log4pot
