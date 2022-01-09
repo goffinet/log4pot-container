@@ -75,7 +75,7 @@ networks:
   log4pot_local:
 services:
   log4pot:
-    build: .
+#    build: .
     container_name: log4pot
     restart: always
     tmpfs:
