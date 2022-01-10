@@ -89,10 +89,9 @@ services:
      - "9200:8080"
      - "25565:8080"
     image: "ghcr.io/goffinet/log4pot-container:master"
-#    read_only: true
-#    volumes:
-#     - /data/log4pot/log:/opt/Log4Pot/log
-#     - /data/log4pot/payloads:/opt/Log4Pot/payloads
+    read_only: true
+    volumes:
+     - "$PWD:/opt/Log4Pot"
 ```
 
 ## Usage
