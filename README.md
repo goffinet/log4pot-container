@@ -91,7 +91,8 @@ services:
     image: "ghcr.io/goffinet/log4pot-container:master"
     read_only: true
     volumes:
-     - "$PWD:/opt/Log4Pot"
+     - "$PWD/log:/opt/Log4Pot/log"
+     - "$PWD/payloads:/opt/Log4Pot/payloads"
 ```
 
 ## Usage
