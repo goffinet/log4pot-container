@@ -98,8 +98,23 @@ services:
 ## Usage
 
 ```
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+systemctl enable docker
+systemctl start docker
+yum -y install python3-pip || apt update && apt -y install python3-pip
+pip3 install pip --upgrade
+pip3 install docker-compose
+apt update
+apt -y install git
+addgroup --gid 2000 log4pot
+adduser --system --shell /bin/bash -uid 2000 --disabled-password -gid 2000 log4pot
+gpasswd -a log4pot docker
+su - log4pot
 git clone https://github.com/goffinet/log4pot-container.git
 cd log4pot-container
+mkdir log/ payloads/
+chown -R 2000:2000 log/ payloads/
 ```
 
 ```
