@@ -57,4 +57,4 @@ USER log4pot:log4pot
 
 WORKDIR /opt/Log4Pot/
 
-CMD ["/usr/bin/python3","log4pot.py","--port","8080","--log","/opt/Log4Pot/log/log4pot.log","--download-dir","/opt/Log4Pot/payloads/","--download-class","--download-payloads"]
+CMD ["/usr/bin/python3","log4pot.py","--port","8080","--log","/opt/Log4Pot/log/log4pot.log","--download-dir","/opt/Log4Pot/payloads/","--download-class","--download-payloads","--server-header","Apache-Coyote/1.1"]
