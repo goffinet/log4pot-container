@@ -122,5 +122,6 @@ docker-compose up -d
 ```
 
 ```
+jq '.' log/log4pot.log
 docker exec log4pot tail -f /opt/Log4Pot/log/log4pot.log
 ```
