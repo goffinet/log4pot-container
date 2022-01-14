@@ -17,13 +17,11 @@ RUN apt-get update && \
       libcap2-bin \
       libcurl4 \
       libcurl4-openssl-dev \
-      libffi7 \
       libffi-dev \
       libssl-dev \
       python3-pip \
       python3 \
-      python3-dev \
-      rust-all && \
+      python3-dev && \
     pip3 install pip --upgrade
 
 RUN pip3 install poetry
