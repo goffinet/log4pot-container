@@ -26,7 +26,7 @@ RUN apt-get update && \
       rust-all && \
     pip3 install pip --upgrade
 
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py ./get-poetry.py && \
+RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -o ./get-poetry.py && \
     python3 ./get-poetry.py && \
     source $HOME/.poetry/env
 
