@@ -30,7 +30,7 @@ RUN mkdir -p /opt /var/log/log4pot && \
     cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot && \
     cd Log4Pot && \
-    mv poetry.lock poetry.lock.old
+    mv poetry.lock poetry.lock.old && \
     poetry install
 
 RUN setcap cap_net_bind_service=+ep /usr/bin/python3.8 && \
