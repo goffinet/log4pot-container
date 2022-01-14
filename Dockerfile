@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM python:buster
 
 LABEL org.opencontainers.image.source https://github.com/goffinet/log4pot-container
 
