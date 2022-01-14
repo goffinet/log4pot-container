@@ -24,7 +24,8 @@ RUN apt-get update && \
              python3-dev \
              rust-all && \
     pip3 install --upgrade pip && \
-    pip3 install poetry pycurl && \
+#    pip3 install poetry pycurl && \
+    curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 - && \
     mkdir -p /opt /var/log/log4pot && \
     cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot && \
