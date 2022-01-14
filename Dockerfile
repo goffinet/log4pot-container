@@ -1,4 +1,3 @@
-#FROM python:3.9-buster
 FROM ubuntu:21.04
 
 LABEL org.opencontainers.image.source https://github.com/goffinet/log4pot-container
@@ -31,7 +30,7 @@ RUN mkdir -p /opt /var/log/log4pot && \
     cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot && \
     cd Log4Pot && \
-    setcap cap_net_bind_service=+ep /usr/bin/python3.9 && \
+    setcap cap_net_bind_service=+ep /usr/bin/python3.8 && \
     addgroup --gid 2000 log4pot && \
     adduser --system --no-create-home --shell /bin/bash -uid 2000 --disabled-password --disabled-login -gid 2000 log4pot && \
     mkdir -p /opt/Log4Pot/payloads /opt/Log4Pot/log && \
