@@ -16,6 +16,7 @@ RUN apt-get update && \
        libcap2-bin \
        libcurl4 \
        libcurl4-nss-dev \
+       libcurl4-openssl-dev \
        libffi7 \
        libffi-dev \
        libssl-dev \
@@ -29,9 +30,6 @@ RUN apt-get update && \
     cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot && \
     cd Log4Pot && \
-#    git checkout 4269bf4a91457328fb64c3e7941cb2f520e5e911 && \
-    git checkout 4e9bac32605e4d2dd4bbc6df56365988b4815c4a && \
-    sed -i 's#"type": logtype,#"reason": logtype,#g' log4pot.py && \
     poetry install && \
     setcap cap_net_bind_service=+ep /usr/bin/python3.8 && \
     addgroup --gid 2000 log4pot && \
