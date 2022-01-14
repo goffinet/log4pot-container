@@ -24,12 +24,13 @@ RUN apt-get update && \
       python3-dev && \
     pip3 install pip --upgrade
 
-RUN pip3 install poetry && python -m venv /venv
+RUN pip3 install poetry
 
 RUN mkdir -p /opt /var/log/log4pot && \
     cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot && \
     cd Log4Pot && \
+    mv poetry.lock poetry.lock.old
     poetry install
 
 RUN setcap cap_net_bind_service=+ep /usr/bin/python3.8 && \
