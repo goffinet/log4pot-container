@@ -49,8 +49,7 @@ RUN apt-get purge -y build-essential \
 
 STOPSIGNAL SIGINT
 
-#USER log4pot:log4pot
-USER root
+USER log4pot:log4pot
 
 WORKDIR /opt/Log4Pot/
 
