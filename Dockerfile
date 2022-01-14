@@ -30,9 +30,6 @@ RUN mkdir -p /opt /var/log/log4pot && \
     cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot && \
     cd Log4Pot && \
-    mv poetry.lock poetry.lock.old && \
-    mv log4pot log4.lib && \
-    poetry install && \
     setcap cap_net_bind_service=+ep /usr/bin/python3.7 && \
     addgroup --gid 2000 log4pot && \
     adduser --system --no-create-home --shell /bin/bash -uid 2000 --disabled-password --disabled-login -gid 2000 log4pot && \
@@ -52,8 +49,9 @@ RUN apt-get purge -y build-essential \
 
 STOPSIGNAL SIGINT
 
-USER log4pot:log4pot
+#USER log4pot:log4pot
+USER root
 
 WORKDIR /opt/Log4Pot/
 
-CMD ["/usr/bin/python3","log4pot.py","--port","8080","--log","/opt/Log4Pot/log/log4pot.log","--download-dir","/opt/Log4Pot/payloads/","--download-class","--download-payloads","--server-header","Apache-Coyote/1.1"]
+#CMD ["/usr/bin/python3","log4pot.py","--port","8080","--log","/opt/Log4Pot/log/log4pot.log","--download-dir","/opt/Log4Pot/payloads/","--download-class","--download-payloads","--server-header","Apache-Coyote/1.1"]
