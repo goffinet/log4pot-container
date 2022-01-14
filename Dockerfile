@@ -24,7 +24,8 @@ RUN apt-get update && \
       python3-dev && \
     pip3 install pip --upgrade
 
-RUN pip3 install poetry
+RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -o get-poetry.py && \
+    python3 get-poetry.py
 
 RUN mkdir -p /opt /var/log/log4pot && \
     cd /opt/ && \
@@ -37,8 +38,7 @@ RUN setcap cap_net_bind_service=+ep /usr/bin/python3.8 && \
     adduser --system --no-create-home --shell /bin/bash -uid 2000 --disabled-password --disabled-login -gid 2000 log4pot && \
     mkdir -p /opt/Log4Pot/payloads /opt/Log4Pot/log && \
     chown -R 775 /opt/Log4Pot/payloads /opt/Log4Pot/log && \
-    chown log4pot:log4pot -R /opt/Log4Pot && \
-    chown log4pot:log4pot -R /var/log/log4pot
+    chown log4pot:log4pot -R /opt/Log4Pot
 
 RUN apt-get purge -y build-essential \
         cargo \
