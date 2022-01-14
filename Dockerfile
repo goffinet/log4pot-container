@@ -15,7 +15,6 @@ RUN apt-get update && \
        libcap2 \
        libcap2-bin \
        libcurl4 \
-       libcurl4-nss-dev \
        libcurl4-openssl-dev \
        libffi7 \
        libffi-dev \
