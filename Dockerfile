@@ -24,7 +24,7 @@ RUN apt-get update && \
       python3-dev && \
     pip3 install pip --upgrade
 
-RUN pip3 install poetry
+RUN pip3 install poetry && python -m venv /venv
 
 RUN mkdir -p /opt /var/log/log4pot && \
     cd /opt/ && \
