@@ -26,7 +26,8 @@ RUN apt-get update && \
       rust-all && \
     pip3 install pip --upgrade
 
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 - && \
+RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py ./get-poetry.py && \
+    python3 ./get-poetry.py && \
     source $HOME/.poetry/env
 
 RUN mkdir -p /opt /var/log/log4pot && \
