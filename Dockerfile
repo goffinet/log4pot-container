@@ -34,7 +34,7 @@ RUN mkdir -p /opt /var/log/log4pot && \
     mv log4pot log4.lib && \
     poetry install
 
-RUN setcap cap_net_bind_service=+ep /usr/bin/python3.8 && \
+RUN setcap cap_net_bind_service=+ep /usr/bin/python3 && \
     addgroup --gid 2000 log4pot && \
     adduser --system --no-create-home --shell /bin/bash -uid 2000 --disabled-password --disabled-login -gid 2000 log4pot && \
     mkdir -p /opt/Log4Pot/payloads /opt/Log4Pot/log && \
