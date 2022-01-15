@@ -16,9 +16,9 @@ RUN apt-get update && \
        python3 \
        python3-dev && \
     pip3 install --upgrade pip && \
-    pip3 install pycurl && \
+    pip3 install pycurl
 
-RUN mkdir -p /opt/Log4Pot/payloads /opt/Log4Pot/log /var/log/log4pot && \
+RUN mkdir -p /opt/Log4Pot/payloads /opt/Log4Pot/log && \
     cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot
 
