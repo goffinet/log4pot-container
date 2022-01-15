@@ -9,32 +9,18 @@ RUN apt-get update && \
     apt-get dist-upgrade -y && \
     apt-get install -y \
        build-essential \
-       cargo \
-       cleo \
        git \
-       libcap2 \
-       libcap2-bin \
-       libcurl4 \
-       libcurl4-nss-dev \
-       libffi7 \
-       libffi-dev \
+       libcurl4-openssl-dev \
        libssl-dev \
        python3-pip \
        python3 \
-       python3-dev \
-       rust-all && \
+       python3-dev && \
     pip3 install --upgrade pip && \
-#    pip3 install poetry && \
     pip3 install pycurl && \
     mkdir -p /opt /var/log/log4pot && \
     cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot && \
     cd Log4Pot && \
-#    git checkout 4269bf4a91457328fb64c3e7941cb2f520e5e911 && \
-#    git checkout 4e9bac32605e4d2dd4bbc6df56365988b4815c4a && \
-#    sed -i 's#"type": logtype,#"reason": logtype,#g' log4pot.py && \
-#    mv log4pot.py log4pot.py.backup && \
-#    poetry install && \
     setcap cap_net_bind_service=+ep /usr/bin/python3.8 && \
     addgroup --gid 2000 log4pot && \
     adduser --system --no-create-home --shell /bin/bash -uid 2000 --disabled-password --disabled-login -gid 2000 log4pot && \
@@ -43,12 +29,8 @@ RUN apt-get update && \
     chown log4pot:log4pot -R /opt/Log4Pot && \
     chown log4pot:log4pot -R /var/log/log4pot && \
     apt-get purge -y build-essential \
-        cargo \
         git \
-        libffi-dev \
-        libssl-dev \
-        python3-dev \
-        rust-all && \
+        python3-dev && \
     apt-get autoremove -y --purge && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
