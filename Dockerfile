@@ -20,15 +20,9 @@ RUN apt-get update && \
     mkdir -p /opt /var/log/log4pot && \
     cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot && \
-    cd Log4Pot && \
-    setcap cap_net_bind_service=+ep /usr/bin/python3.8 && \
-    addgroup --gid 2000 log4pot && \
-    adduser --system --no-create-home --shell /bin/bash -uid 2000 --disabled-password --disabled-login -gid 2000 log4pot && \
-    mkdir -p /opt/Log4Pot/payloads /opt/Log4Pot/log && \
-    chown -R 775 /opt/Log4Pot/payloads /opt/Log4Pot/log && \
-    chown log4pot:log4pot -R /opt/Log4Pot && \
-    chown log4pot:log4pot -R /var/log/log4pot && \
-    apt-get purge -y build-essential \
+    mkdir -p /opt/Log4Pot/payloads /opt/Log4Pot/log
+
+RUN apt-get purge -y build-essential \
         git \
         python3-dev && \
     apt-get autoremove -y --purge && \
@@ -36,8 +30,6 @@ RUN apt-get update && \
 
 
 STOPSIGNAL SIGINT
-
-USER log4pot:log4pot
 
 WORKDIR /opt/Log4Pot/
 
