@@ -29,9 +29,8 @@ RUN  pip3 install poetry
 RUN mkdir -p /opt /var/log/log4pot && \
     cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot && \
-    cd Log4Pot
-
-RUN poetry install
+    cd Log4Pot && \
+    poetry install
 
 RUN setcap cap_net_bind_service=+ep /usr/bin/python3.8 && \
     addgroup --gid 2000 log4pot && \
