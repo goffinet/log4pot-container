@@ -29,16 +29,16 @@ RUN  pip3 install poetry
 RUN mkdir -p /opt /var/log/log4pot && \
     cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot && \
-    cd Log4Pot && \
-    setcap cap_net_bind_service=+ep /usr/bin/python3.8 && \
+    cd Log4Pot
+
+RUN setcap cap_net_bind_service=+ep /usr/bin/python3.8 && \
     addgroup --gid 2000 log4pot && \
     adduser --system --no-create-home --shell /bin/bash -uid 2000 --disabled-password --disabled-login -gid 2000 log4pot && \
     mkdir -p /opt/Log4Pot/payloads /opt/Log4Pot/log && \
     chown -R 775 /opt/Log4Pot/payloads /opt/Log4Pot/log && \
     chown log4pot:log4pot -R /opt/Log4Pot
 
-RUN poetry config virtualenvs.create false && \
-    poetry install
+RUN poetry install
 
 RUN apt-get purge -y build-essential \
         cargo \
