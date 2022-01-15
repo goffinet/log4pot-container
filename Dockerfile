@@ -32,8 +32,8 @@ RUN apt-get update && \
 #    git checkout 4269bf4a91457328fb64c3e7941cb2f520e5e911 && \
 #    git checkout 4e9bac32605e4d2dd4bbc6df56365988b4815c4a && \
 #    sed -i 's#"type": logtype,#"reason": logtype,#g' log4pot.py && \
-    mv log4pot.py log4pot.py.backup && \
-    poetry install && \
+#    mv log4pot.py log4pot.py.backup && \
+#    poetry install && \
     setcap cap_net_bind_service=+ep /usr/bin/python3.8 && \
     addgroup --gid 2000 log4pot && \
     adduser --system --no-create-home --shell /bin/bash -uid 2000 --disabled-password --disabled-login -gid 2000 log4pot && \
