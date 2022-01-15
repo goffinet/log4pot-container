@@ -30,6 +30,7 @@ RUN mkdir -p /opt /var/log/log4pot && \
     cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot && \
     cd Log4Pot && \
+    mv log4pot.py log4pot.py.backup
     poetry install
 
 RUN setcap cap_net_bind_service=+ep /usr/bin/python3.8 && \
