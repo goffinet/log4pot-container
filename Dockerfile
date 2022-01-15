@@ -8,10 +8,10 @@ RUN apt-get update && \
     apt-get update -y && \
     apt-get dist-upgrade -y && \
     apt-get install -y \
-             build-essential \
+       build-essential \
        cargo \
        cleo \
-             git \
+       git \
        libcap2 \
        libcap2-bin \
        libcurl4 \
@@ -20,11 +20,12 @@ RUN apt-get update && \
        libffi-dev \
        libssl-dev \
        python3-pip \
-             python3 \
-             python3-dev \
-             rust-all && \
+       python3 \
+       python3-dev \
+       rust-all && \
     pip3 install --upgrade pip && \
-#    pip3 install poetry pycurl && \
+#    pip3 install poetry && \
+    pip3 install pycurl && \
     mkdir -p /opt /var/log/log4pot && \
     cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot && \
