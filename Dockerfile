@@ -24,7 +24,7 @@ RUN apt-get update && \
              python3-dev \
              rust-all && \
     pip3 install --upgrade pip && \
-    pip3 install poetry pycurl && \
+#    pip3 install poetry pycurl && \
     mkdir -p /opt /var/log/log4pot && \
     cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot && \
@@ -58,4 +58,4 @@ USER log4pot:log4pot
 
 WORKDIR /opt/Log4Pot/
 
-CMD ["/usr/bin/python3","log4pot.py","--port","8080","--log","/opt/Log4Pot/log/log4pot.log","--download-dir","/opt/Log4Pot/payloads/","--download-class","--download-payloads","--server-header","Apache-Coyote/1.1"]
+CMD ["/usr/bin/python3","log4pot.py","--port","8080","--log","/opt/Log4Pot/log/log4pot.log","--download-dir","/opt/Log4Pot/payloads/","--payloader","--server-header","Apache-Coyote/1.1"]
