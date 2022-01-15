@@ -19,9 +19,9 @@ RUN apt-get update && \
 RUN pip3 install --upgrade pip && \
     pip3 install pycurl
 
-RUN mkdir -p /opt/Log4Pot/payloads /opt/Log4Pot/log && \
-    cd /opt/ && \
-    git clone https://github.com/thomaspatzke/Log4Pot
+RUN cd /opt/ && \
+    git clone https://github.com/thomaspatzke/Log4Pot && \
+    mkdir -p /opt/Log4Pot/payloads /opt/Log4Pot/log
 
 RUN apt-get purge -y build-essential \
         git \
