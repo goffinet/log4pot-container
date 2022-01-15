@@ -24,7 +24,7 @@ RUN apt-get update && \
       python3-dev && \
     pip3 install pip --upgrade
 
-RUN poetry config virtualenvs.create false && pip3 install poetry
+RUN  pip3 install poetry
 
 RUN mkdir -p /opt /var/log/log4pot && \
     cd /opt/ && \
@@ -36,6 +36,9 @@ RUN mkdir -p /opt /var/log/log4pot && \
     mkdir -p /opt/Log4Pot/payloads /opt/Log4Pot/log && \
     chown -R 775 /opt/Log4Pot/payloads /opt/Log4Pot/log && \
     chown log4pot:log4pot -R /opt/Log4Pot
+
+RUN poetry config virtualenvs.create false && \
+    poetry install
 
 RUN apt-get purge -y build-essential \
         cargo \
