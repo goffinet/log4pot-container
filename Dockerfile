@@ -17,17 +17,16 @@ RUN apt-get update && \
        python3-dev && \
     pip3 install --upgrade pip && \
     pip3 install pycurl && \
-    mkdir -p /opt /var/log/log4pot && \
+
+RUN mkdir -p /opt/Log4Pot/payloads /opt/Log4Pot/log /var/log/log4pot && \
     cd /opt/ && \
-    git clone https://github.com/thomaspatzke/Log4Pot && \
-    mkdir -p /opt/Log4Pot/payloads /opt/Log4Pot/log
+    git clone https://github.com/thomaspatzke/Log4Pot
 
 RUN apt-get purge -y build-essential \
         git \
         python3-dev && \
     apt-get autoremove -y --purge && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 
 STOPSIGNAL SIGINT
 
