@@ -14,8 +14,9 @@ RUN apt-get update && \
        libssl-dev \
        python3-pip \
        python3 \
-       python3-dev && \
-    pip3 install --upgrade pip && \
+       python3-dev
+
+RUN pip3 install --upgrade pip && \
     pip3 install pycurl
 
 RUN mkdir -p /opt/Log4Pot/payloads /opt/Log4Pot/log && \
