@@ -17,7 +17,7 @@ RUN apt-get update && \
        python3-dev
 
 RUN pip3 install --upgrade pip && \
-    pip3 install pycurl
+    pip3 install pycurl pandas
 
 RUN cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot && \
