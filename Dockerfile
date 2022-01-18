@@ -33,4 +33,4 @@ STOPSIGNAL SIGINT
 
 WORKDIR /opt/Log4Pot/
 
-CMD ["/usr/bin/python3","log4pot.py","--port","8080","--log","/opt/Log4Pot/log/log4pot.log","--download-dir","/opt/Log4Pot/payloads/","--payloader","--server-header","Apache-Coyote/1.1"]
+CMD ["/usr/bin/python3","log4pot-server.py","--port","8080","--log","/opt/Log4Pot/log/log4pot.log","--download-dir","/opt/Log4Pot/payloads/","--payloader","--server-header","Apache-Coyote/1.1"]
