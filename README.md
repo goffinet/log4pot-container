@@ -24,7 +24,7 @@ RUN apt-get update && \
        python3-dev
 
 RUN pip3 install --upgrade pip && \
-    pip3 install pycurl
+    pip3 install pycurl pandas
 
 RUN cd /opt/ && \
     git clone https://github.com/thomaspatzke/Log4Pot && \
@@ -40,7 +40,7 @@ STOPSIGNAL SIGINT
 
 WORKDIR /opt/Log4Pot/
 
-CMD ["/usr/bin/python3","log4pot.py","--port","8080","--log","/opt/Log4Pot/log/log4pot.log","--download-dir","/opt/Log4Pot/payloads/","--payloader","--server-header","Apache-Coyote/1.1"]
+CMD ["/usr/bin/python3","log4pot-server.py","--port","8080","--log","/opt/Log4Pot/log/log4pot.log","--download-dir","/opt/Log4Pot/payloads/","--payloader","--server-header","Apache-Coyote/1.1"]
 ```
 
 ## Docker-compose
